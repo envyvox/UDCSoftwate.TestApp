@@ -1,0 +1,8 @@
+<div *ngIf="employee">
+  <div class="udc-info">
+    <p>First Name: {{employee.firstName}}</p>
+    <p>Last Name: {{employee.lastName}}</p>
+    <p>Gender: {{employee.gender | enumToString:gender}}</p>
+    <p>City: {{employee.city}}</p>
+  </div>
+</div>

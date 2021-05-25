@@ -1,0 +1,32 @@
+<div class="p-grid">
+  <div class="p-col-3">
+      <h3>List of Employees</h3>
+      <button pButton type="button" class="p-button-outlined p-button-secondary p-mr-2 p-mb-2"
+              routerLink="/employee/editor/0">
+        Add
+      </button>
+      <button pButton type="button" class="p-button-outlined p-button-secondary p-mr-2 p-mb-2"
+              [disabled]="!selectedEmployee"
+              (click)="editEmployee(selectedEmployee)">
+        Edit
+      </button>
+      <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+      <button pButton type="button" class="p-button-outlined p-button-secondary p-mr-2 p-mb-2"
+              [disabled]="!selectedEmployee"
+              (click)="confirmDeleteEmployee(selectedEmployee)">
+        Delete
+      </button>
+  </div>
+</div>
+<div class="p-grid">
+  <div class="p-col-3">
+      <p-listbox [options]="employees" [(ngModel)]="selectedEmployee" optionLabel="fullName"
+                 emptyMessage="No employees in database. Click 'Add' button."></p-listbox>
+  </div>
+  <div class="p-col-9" style="margin-top: -60px;">
+    <h3>Employee Details</h3>
+    <div class="udc-container">
+      <app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
+    </div>
+  </div>
+</div>

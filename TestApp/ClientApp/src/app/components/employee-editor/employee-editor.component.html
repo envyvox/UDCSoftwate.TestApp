@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <h3>Employee Editor</h3>
+  <div class="p-fluid p-grid">
+    <div class="p-field p-col-12 p-md-3">
+      <div class="p-inputgroup p-mb-2">
+        <span class="p-inputgroup-addon">First Name</span>
+        <input type="text" pInputText placeholder="First Name" formControlName="firstName">
+      </div>
+      <div class="p-inputgroup p-mb-2">
+        <span class="p-inputgroup-addon ">Last Name</span>
+        <input type="text" pInputText placeholder="Last Name" formControlName="lastName">
+      </div>
+      <div class="p-inputgroup p-mb-2">
+        <span class="p-inputgroup-addon ">Gender</span>
+        <p-dropdown [options]="genders" [scrollHeight]="'300px'" formControlName="gender"
+                    optionLabel="name" optionValue="value" placeholder="Select a gender"></p-dropdown>
+      </div>
+      <div class="p-inputgroup p-mb-2">
+        <span class="p-inputgroup-addon ">City</span>
+        <input type="text" pInputText placeholder="City" formControlName="city">
+      </div>
+      <span class="p-buttonset">
+        <button pButton type="button" label="Back" class="p-button-outlined p-button-secondary"
+                icon="pi pi-undo" routerLink="/employee"></button>
+        <button pButton type="submit" label="Save" class="p-button-outlined p-button-success"
+                icon="pi pi-check" [disabled]="form.invalid"></button>
+      </span>
+    </div>
+  </div>
+</form>
